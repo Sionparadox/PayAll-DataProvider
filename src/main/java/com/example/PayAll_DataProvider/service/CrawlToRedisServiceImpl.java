@@ -90,6 +90,13 @@ public class CrawlToRedisServiceImpl implements CrawlToRedisService {
 
 	public WebDriver createNewWebDriver() {
 		File chromeDriverFile = new File("/usr/bin/chromedriver");
+		if (!chromeDriverFile.exists()) {
+			throw new RuntimeException("크롬 드라이버를 찾을 수 없습니다. 경로: " + chromeDriverFile.getAbsolutePath());
+		}
+
+		if (!chromeDriverFile.canExecute()) {
+			throw new RuntimeException("크롬 드라이버 실행 권한이 없습니다. 경로: " + chromeDriverFile.getAbsolutePath());
+		}
 		ChromeDriverService service = new ChromeDriverService.Builder()
 			.usingDriverExecutable(chromeDriverFile)
 			.usingAnyFreePort()
