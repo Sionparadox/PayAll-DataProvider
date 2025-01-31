@@ -72,8 +72,8 @@ public class CrawlToRedisServiceImpl implements CrawlToRedisService {
 
 	@PostConstruct
 	public void init() {
-		// WebDriverManager.chromedriver().driverVersion("132.0.6834.110").setup();
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().driverVersion("132.0.6834.110").setup();
+		// WebDriverManager.chromedriver().setup();
 		this.searchDriver = createNewWebDriver();
 		// this.shopDriver = createNewWebDriver(17878);
 	}
