@@ -141,6 +141,7 @@ public class CrawlToRedisServiceImpl implements CrawlToRedisService {
 
 
 			List<WebElement> productItems = searchDriver.findElements(By.cssSelector("li[id^=productItem]"));
+			System.out.println("searchDriver.getTitle() = " + searchDriver.getTitle());
 			if (productItems.isEmpty()) {
 				log.info("상품 리스트가 없습니다.");
 				return Collections.emptyList();
